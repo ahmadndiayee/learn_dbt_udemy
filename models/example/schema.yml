@@ -19,3 +19,10 @@ models:
         tests:
           - unique
           - not_null
+  - name: cumulative_orders_by_date
+    description: "Calculate the cumulative sales for the order date"
+    columns:
+      - name: order_date
+      tests:
+        - unique
+        - not null
