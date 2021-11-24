@@ -23,6 +23,6 @@ models:
     description: "Calculate the cumulative sales for the order date"
     columns:
       - name: order_date
-      tests:
-        - unique
-        - not null
+        tests:
+          - unique
+          - not null
