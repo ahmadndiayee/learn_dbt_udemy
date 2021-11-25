@@ -26,3 +26,4 @@ models:
         tests:
           - unique
           - not null
+  - name: incremental_time

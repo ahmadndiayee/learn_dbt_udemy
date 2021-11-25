@@ -1,13 +1,14 @@
 {{ config(materialized='table') }}
 
-SELECT O_ORDERDATE, SUM(O_TOTALPRICE) AS TOTAL_PRICE,
-
-SUM(TOTAL_PRICE) OVER (ORDER BY O_ORDERDATE
-
-                     ROWS BETWEEN 1 PRECEDING AND CURRENT ROW)
-
-           AS CUMULATIVE_SALES
-
-FROM "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."ORDERS"
-
-GROUP BY O_ORDERDATE
+SELECT
+    o_orderdate,
+    SUM(o_totalprice) AS total_price,
+    SUM(total_price) over (
+        ORDER BY
+            o_orderdate rows BETWEEN 1 preceding
+            AND CURRENT ROW
+    ) AS cumulative_sales
+FROM
+    "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."ORDERS"
+GROUP BY
+    o_orderdate
