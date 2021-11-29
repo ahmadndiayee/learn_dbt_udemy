@@ -22,8 +22,19 @@ models:
   - name: cumulative_orders_by_date
     description: "Calculate the cumulative sales for the order date"
     columns:
-      - name: order_date
+      - name: o_orderdate
         tests:
           - unique
-          - not null
+          - not_null
   - name: incremental_time
+  - name: playing_with_test
+    description: "Play with tests"
+    columns:
+      - name: c_custkey
+        tests:
+          - unique
+          - not_null
+      - name: c_mktsegment
+        tests:
+          - accepted_values:
+              values: ["BUILDING", "AUTOMOBILE", "MACHINERY", "HOUSEHOLD", "FURNITURE"]
