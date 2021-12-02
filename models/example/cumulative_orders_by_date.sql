@@ -9,6 +9,6 @@ SELECT
             AND CURRENT ROW
     ) AS cumulative_sales
 FROM
-    "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."ORDERS"
+    {{ source('tpch_sf1', 'orders') }}
 GROUP BY
     o_orderdate

@@ -3,7 +3,7 @@
 select  
     *
 from
-    "SNOWFLAKE_SAMPLE_DATA"."TPCDS_SF10TCL"."TIME_DIM"
+    {{ source('tpcds_sf10tcl', 'time_dim') }}
 where
     TO_TIME(
         CONCAT(
